@@ -35,8 +35,6 @@ from handlers import (
     stats_command,
 )
 
-load_dotenv()
-
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
@@ -70,7 +68,7 @@ async def post_init(application):
 
 def main():
     if not BOT_TOKEN:
-        logger.error("BOT_TOKEN not set! Create a .env file with your token.")
+        logger.error("BOT_TOKEN not set!")
         return
 
     app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
