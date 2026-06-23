@@ -17,7 +17,7 @@ import aiohttp
 
 logger = logging.getLogger(__name__)
 
-GEOCACHE_FILE = "geocache.json"
+GEOCACHE_FILE = "/data/geocache.json" if os.path.isdir("/data") else "geocache.json"
 
 # ─── Area boundaries (rough lat/lon boxes for Singapore regions) ───────────────
 AREA_BOUNDS = {
@@ -214,7 +214,7 @@ async def _geocode_all(establishments: list[Establishment]):
 
     logger.info("Geocoding %d establishments (this may take a moment)...", len(missing))
 
-    sem = asyncio.Semaphore(10)
+    sem = asyncio.Semaphore(3)
     cache_hits = 0
     to_fetch: list[tuple[Establishment, str]] = []
 
