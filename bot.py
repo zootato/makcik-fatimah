@@ -44,7 +44,7 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 DATA_SOURCE_URL = os.getenv(
     "DATA_SOURCE_URL",
-    "https://raw.githubusercontent.com/zootato/singapore-halal-establishments/main/data/establishments.json",
+    "https://raw.githubusercontent.com/zootato/singapore-halal-establishments/main/halal_establishments.json",
 )
 DATA_REFRESH_INTERVAL = int(os.getenv("DATA_REFRESH_INTERVAL", "3600"))
 NEARBY_MAX_RESULTS = int(os.getenv("NEARBY_MAX_RESULTS", "5"))

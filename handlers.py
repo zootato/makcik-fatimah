@@ -559,10 +559,7 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if "muis" in e.halal_type.lower()
         or "certified" in e.halal_type.lower()
         or "eating establishment" in e.halal_type.lower()
-    )
-    muslim_owned = sum(
-        1 for e in data.establishments
-        if "muslim" in e.halal_type.lower() and "muis" not in e.halal_type.lower()
+        or "food preparation" in e.halal_type.lower()
     )
 
     geocode_pct = f"{with_coords / total * 100:.1f}%" if total else "0%"
@@ -571,8 +568,7 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"📊 *Mak Cik Fatimah's Stats*\n\n"
         f"🍛 Total halal places: *{total}*\n"
         f"📍 With GPS coordinates: *{with_coords}* ({geocode_pct})\n"
-        f"✅ MUIS Certified: *{muis_count}*\n"
-        f"Muslim-Owned: *{muslim_owned}*\n\n"
+        f"✅ MUIS Certified: *{muis_count}*\n\n"
         f"Data from: *singapore-halal-establishments*\n\n"
         f"Mak Cik remembers all of them okay! 😤💪",
         parse_mode="Markdown",

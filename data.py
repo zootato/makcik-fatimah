@@ -90,7 +90,7 @@ class Establishment:
             return "MUIS Certified"
         if "muslim" in ht:
             return "Muslim-Owned"
-        if "eating establishment" in ht or "hawker" in ht:
+        if "eating establishment" in ht or "hawker" in ht or "food preparation" in ht:
             return "MUIS Certified"
         if ht:
             return f"📋 {self.halal_type}"
@@ -348,6 +348,7 @@ class HalalData:
                 if "muis" in e.halal_type.lower()
                 or "certified" in e.halal_type.lower()
                 or "eating establishment" in e.halal_type.lower()
+                or "food preparation" in e.halal_type.lower()
                 or not e.halal_type
             ]
 
